@@ -18,12 +18,12 @@ public class ProdutoController {
         return ResponseEntity.ok(produtoService.save(produto));
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     ResponseEntity<Produto> getById(@PathVariable Integer id){
         return ResponseEntity.ok(produtoService.getById(id));
     }
 
-    @DeleteMapping("id")
+    @DeleteMapping("/{id}")
     public void deleteById(@PathVariable Integer id){
         produtoService.delete(id);
     }

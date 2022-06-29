@@ -22,6 +22,7 @@ public class CategoriaImpl implements CategoriaService{
     }
 
     public void delete(Integer id){
+
         categoriaRepository.deleteById(id);
     }
 

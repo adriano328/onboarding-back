@@ -24,13 +24,12 @@ public class ProdutoImpl implements ProdutoService{
 
     @Override
     public void delete(Integer id) {
-        if(produtoRepository.existsById(id)){
-            produtoRepository.deleteById(id);
-        }
+        produtoRepository.deleteById(id);
     }
 
     @Override
     public Produto update(Produto produto) {
+
         return produtoRepository.save(produto);
     }
 }
