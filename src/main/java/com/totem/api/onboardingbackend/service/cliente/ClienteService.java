@@ -5,6 +5,8 @@ import com.totem.api.onboardingbackend.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public interface ClienteService {
 
@@ -14,5 +16,9 @@ public interface ClienteService {
 
     void delete (Integer id);
 
+    List<Cliente> findAll();
+
     Cliente update(Cliente cliente);
+
+    List<Cliente> findClienteByName(String nome);
 }

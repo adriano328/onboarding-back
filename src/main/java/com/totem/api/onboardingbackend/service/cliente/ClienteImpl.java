@@ -5,6 +5,8 @@ import com.totem.api.onboardingbackend.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ClienteImpl implements ClienteService{
 
@@ -27,7 +29,19 @@ public class ClienteImpl implements ClienteService{
     }
 
     @Override
+    public List<Cliente> findAll() {
+        return clienteRepository.findAll();
+    }
+
+    @Override
     public Cliente update(Cliente cliente) {
         return clienteRepository.save(cliente);
     }
+
+    @Override
+    public List<Cliente> findClienteByName(String nome) {
+        return clienteRepository.findByNomeContainingIgnoreCase(nome);
+    }
+
+
 }

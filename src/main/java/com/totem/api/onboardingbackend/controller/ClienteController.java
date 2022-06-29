@@ -1,10 +1,13 @@
 package com.totem.api.onboardingbackend.controller;
 
+import com.totem.api.onboardingbackend.domain.Categoria;
 import com.totem.api.onboardingbackend.domain.Cliente;
 import com.totem.api.onboardingbackend.service.cliente.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "cliente")
@@ -32,4 +35,15 @@ public class ClienteController {
     ResponseEntity<Cliente> update(@RequestBody Cliente cliente){
         return ResponseEntity.ok(clienteService.update(cliente));
     }
+
+    @GetMapping("/lista-cliente")
+    public List<Cliente> listar(){
+        return clienteService.findAll();
+    }
+
+    @GetMapping("/listar-por-nome")
+    ResponseEntity<List<Cliente>> listarPorNome(@RequestParam ("nome") String nome){
+        return ResponseEntity.ok().body(clienteService.findClienteByName(nome));
+    }
+
 }

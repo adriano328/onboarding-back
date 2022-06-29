@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "produto")
 public class ProdutoController {
@@ -33,6 +35,14 @@ public class ProdutoController {
         return ResponseEntity.ok(produtoService.update(produto));
     }
 
+    @GetMapping("/lista-produto")
+    public List<Produto> listar(){
+        return produtoService.findAll();
+    }
 
+    @GetMapping("/listar-por-nome")
+    ResponseEntity<List<Produto>> listarPorNome(@RequestParam ("nome") String nome){
+        return ResponseEntity.ok().body(produtoService.findProdutoByName(nome));
+    }
 
 }

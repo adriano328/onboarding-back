@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/categoria")
 public class CategoriaController {
@@ -33,6 +36,16 @@ public class CategoriaController {
         return ResponseEntity.ok(categoriaService.update(categoria));
     }
 
+    @GetMapping("/lista-categoria")
+    public List<Categoria> listar(){
+        return categoriaService.findAll();
+    }
+
+
+    @GetMapping("/listar-por-nome")
+    ResponseEntity<List<Categoria>> listarPorNome(@RequestParam("nome") String nome){
+        return ResponseEntity.ok().body(categoriaService.findCategoriaByName(nome));
+    }
 }
 
 
