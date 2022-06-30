@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Getter
@@ -15,11 +16,12 @@ import javax.persistence.*;
 @Table(name = "categoria")
 public class Categoria {
 
-    @javax.persistence.Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
 
     @Column
+    @NotBlank(message = "Campo não pode ser vazio")
     private String nome;
 
     @Column

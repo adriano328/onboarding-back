@@ -6,18 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping(value = "/categoria")
+@CrossOrigin(exposedHeaders="Access-Control-Allow-Origin")
 public class CategoriaController {
 
     @Autowired
     CategoriaService categoriaService;
 
     @PostMapping()
-    ResponseEntity<Categoria> save(@RequestBody Categoria categoria){
+    ResponseEntity<Categoria> save(@Valid @RequestBody Categoria categoria){
         return ResponseEntity.ok(categoriaService.save(categoria));
     }
 
