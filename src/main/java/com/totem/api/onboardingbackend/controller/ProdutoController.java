@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "produto")
+@CrossOrigin(exposedHeaders="Access-Control-Allow-Origin")
 public class ProdutoController {
 
     @Autowired

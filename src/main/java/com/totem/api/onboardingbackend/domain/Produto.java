@@ -1,5 +1,7 @@
 package com.totem.api.onboardingbackend.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +24,7 @@ public class Produto {
     private String nome;
 
     @OneToOne
+    @JsonIgnoreProperties(ignoreUnknown = true)
     @JoinColumn(name = "categoria_id", nullable = false)
     Categoria categoria;
 
