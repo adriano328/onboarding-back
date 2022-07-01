@@ -12,24 +12,25 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Endereco {
+public class CadastroCliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
 
-    private String endereco;
+    @OneToOne
+    @JoinColumn(name = "endereco_id", nullable = false)
+    Endereco endereco;
 
-    @Column
-    private String bairro;
+    @OneToOne
+    @JoinColumn(name = "telefone_id", nullable = false)
+    Telefone telefone;
 
-    @Column
-    private String cep;
+    @ManyToOne
+    @JoinColumn(name = "email_id", nullable = false)
+    Email email;
 
-    @Column
-    private String municipio;
 
-    @Column
-    private String uf;
+
 
 }

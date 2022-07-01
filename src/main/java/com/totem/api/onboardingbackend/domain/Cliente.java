@@ -19,13 +19,25 @@ public class Cliente {
     private Integer id;
 
     @Column
-    private String nome;
+    private String tipo;
 
     @Column
-    private String cpf;
+    private String cpfoucnpj;
+
+    @Column
+    private String inscricaoEstadual;
 
     @Column
     private boolean situacao;
+
+    @Column
+    private String nomeRazao;
+
+    @Column
+    private Boolean sexo;
+
+    @Column
+    private String dtaNascimento;
 
 
 }

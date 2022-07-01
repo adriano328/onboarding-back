@@ -16,12 +16,12 @@ public class EnderecoController {
     EnderecoService enderecoService;
 
     @PostMapping()
-    ResponseEntity<Endereco> save(Endereco endereco){
+    ResponseEntity<Endereco> save(@RequestBody Endereco endereco){
         return ResponseEntity.ok(enderecoService.save(endereco));
     }
 
     @GetMapping("/{id}")
-    ResponseEntity<Endereco> getById(Integer id){
+    ResponseEntity<Endereco> getById(@PathVariable Integer id){
         return ResponseEntity.ok(enderecoService.getById(id));
     }
 
@@ -33,6 +33,11 @@ public class EnderecoController {
     @GetMapping("/lista-endereco")
     public List<Endereco> listar(){
         return enderecoService.findAll();
+    }
+
+    @PutMapping()
+    ResponseEntity<Endereco>update(@RequestBody Endereco endereco){
+        return ResponseEntity.ok(enderecoService.update(endereco));
     }
 
 

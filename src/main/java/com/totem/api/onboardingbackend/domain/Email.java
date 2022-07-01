@@ -12,24 +12,16 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Endereco {
+public class Email {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
 
-    private String endereco;
+    @Column
+    private String email;
 
     @Column
-    private String bairro;
-
-    @Column
-    private String cep;
-
-    @Column
-    private String municipio;
-
-    @Column
-    private String uf;
+    private boolean padrao;
 
 }
