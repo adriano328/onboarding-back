@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -22,13 +23,13 @@ public class CadastroCliente {
     @JoinColumn(name = "endereco_id", nullable = false)
     Endereco endereco;
 
-    @OneToOne
+    @OneToMany
     @JoinColumn(name = "telefone_id", nullable = false)
-    Telefone telefone;
+    List<Telefone> telefone;
 
-    @ManyToOne
+    @OneToMany
     @JoinColumn(name = "email_id", nullable = false)
-    Email email;
+    List<Email> email;
 
 
 
