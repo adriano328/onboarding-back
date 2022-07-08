@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/telefone")
+@CrossOrigin(exposedHeaders="Access-Control-Allow-Origin")
 public class TelefoneController {
 
     @Autowired

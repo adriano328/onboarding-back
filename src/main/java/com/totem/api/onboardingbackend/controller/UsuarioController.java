@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "usuario")
+@CrossOrigin(exposedHeaders="Access-Control-Allow-Origin")
 public class UsuarioController {
 
     @Autowired
