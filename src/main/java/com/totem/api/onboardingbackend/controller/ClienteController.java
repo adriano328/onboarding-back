@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "cliente")
+@RequestMapping(value = "/cliente")
+@CrossOrigin(exposedHeaders="Access-Control-Allow-Origin")
 public class ClienteController {
 
     @Autowired

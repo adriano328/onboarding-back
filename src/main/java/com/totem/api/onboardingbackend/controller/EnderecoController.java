@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "endereco")
+@RequestMapping(value = "/endereco")
+@CrossOrigin(exposedHeaders="Access-Control-Allow-Origin")
 public class EnderecoController {
 
     @Autowired

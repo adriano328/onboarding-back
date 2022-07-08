@@ -25,6 +25,6 @@ public class Categoria {
     private String nome;
 
     @Column
-    private boolean situacao;
+    private Boolean situacao;
 
 }
