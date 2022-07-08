@@ -30,7 +30,7 @@ public class EnderecoImpl implements EnderecoService{
 
     @Override
     public void delete(Integer id) {
-
+        enderecoRepository.deleteById(id);
     }
 
     @Override
