@@ -17,22 +17,22 @@ public class EmailController {
     EmailService emailService;
 
     @PostMapping()
-    ResponseEntity<Email> save(Email email){
+    ResponseEntity<Email> save(@RequestBody Email email){
         return ResponseEntity.ok(emailService.save(email));
     }
 
     @GetMapping("/{id}")
-    ResponseEntity<Email> getById(Integer id){
+    ResponseEntity<Email> getById(@PathVariable Integer id){
         return ResponseEntity.ok(emailService.getById(id));
     }
 
     @DeleteMapping
-    public void delete (Integer id){
+    public void delete (@PathVariable Integer id){
         emailService.delete(id);
     }
 
     @PutMapping()
-    ResponseEntity<Email>update(Email email){
+    ResponseEntity<Email>update(@RequestBody Email email){
         return ResponseEntity.ok(emailService.save(email));
     }
 
