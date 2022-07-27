@@ -35,8 +35,12 @@ public class CategoriaImpl implements CategoriaService{
         categoriaRepository.deleteById(id);
     }
 
-    public Categoria update(Categoria categoria){
-        return categoriaRepository.save(categoria);
+    public Categoria update(Integer id, Categoria categoria){
+        Categoria categoriaUpdate = getById(id);
+        categoriaUpdate.setId(id);
+        categoriaUpdate.setNome(categoria.getNome());
+        categoriaUpdate.setSituacao(categoria.getSituacao());
+        return categoriaRepository.save(categoriaUpdate);
     }
 
     @Override

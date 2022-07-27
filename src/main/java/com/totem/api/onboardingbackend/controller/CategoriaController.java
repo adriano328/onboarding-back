@@ -33,18 +33,18 @@ public class CategoriaController {
         categoriaService.delete(id);
     }
 
-    @PutMapping()
-    ResponseEntity<Categoria> update(@RequestBody Categoria categoria){
-        return ResponseEntity.ok(categoriaService.update(categoria));
+    @PutMapping("{id}")
+    ResponseEntity<Categoria> update(@PathVariable Integer id, @RequestBody Categoria categoria){
+        return ResponseEntity.ok(categoriaService.update(id, categoria));
     }
 
-    @GetMapping("/lista-categoria")
+    @GetMapping()
     public List<Categoria> listar(){
-        return categoriaService.findAll();
+        return  categoriaService.findAll();
     }
 
 
-    @GetMapping("/listar-por-nome")
+    @GetMapping()
     ResponseEntity<List<Categoria>> listarPorNome(@RequestParam("nome") String nome){
         return ResponseEntity.ok().body(categoriaService.findCategoriaByName(nome));
     }

@@ -16,7 +16,7 @@ public interface CategoriaService {
 
     void delete(Integer id);
 
-    Categoria update(Categoria categoria);
+    Categoria update(Integer id, Categoria categoria);
 
     List<Categoria> findCategoriaByName(String nome);
 

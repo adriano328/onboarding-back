@@ -43,8 +43,8 @@ public class ClienteController {
     }
 
     @GetMapping("/listar-por-nome")
-    ResponseEntity<List<Cliente>> listarPorNome(@RequestParam ("nome") String nome){
-        return ResponseEntity.ok().body(clienteService.findClienteByName(nome));
+    ResponseEntity<List<Cliente>> listarPorNome(@RequestParam ("nomeRazao") String nomeRazao){
+        return ResponseEntity.ok().body(clienteService.findClienteByName(nomeRazao));
     }
 
 }
