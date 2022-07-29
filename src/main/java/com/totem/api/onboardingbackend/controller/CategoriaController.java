@@ -3,6 +3,7 @@ package com.totem.api.onboardingbackend.controller;
 import com.totem.api.onboardingbackend.domain.Categoria;
 import com.totem.api.onboardingbackend.service.categoria.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/categoria")
+@RequestMapping("/categoria")
 @CrossOrigin(exposedHeaders="Access-Control-Allow-Origin")
 public class CategoriaController {
 
@@ -38,16 +39,20 @@ public class CategoriaController {
         return ResponseEntity.ok(categoriaService.update(id, categoria));
     }
 
-    @GetMapping()
-    public List<Categoria> listar(){
-        return  categoriaService.findAll();
+    @GetMapping
+    public List<Categoria> listar(Pageable pageable,
+                                  @RequestParam(required = false) String nome,
+                                  @RequestParam (required = false) Boolean situacao ){
+        var response = this.categoriaService.findByFilters(nome, situacao);
+        return  response;
     }
 
 
-    @GetMapping()
-    ResponseEntity<List<Categoria>> listarPorNome(@RequestParam("nome") String nome){
-        return ResponseEntity.ok().body(categoriaService.findCategoriaByName(nome));
-    }
+
+
+
+
+
 }
 
 

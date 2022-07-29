@@ -18,6 +18,6 @@ public interface CategoriaService {
 
     Categoria update(Integer id, Categoria categoria);
 
-    List<Categoria> findCategoriaByName(String nome);
+    List<Categoria> findByFilters(String nome, Boolean situacao);
 
 }

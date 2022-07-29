@@ -44,10 +44,9 @@ public class CategoriaImpl implements CategoriaService{
     }
 
     @Override
-    public List<Categoria> findCategoriaByName(String nome) {
-
-        return categoriaRepository.findByNomeContainingIgnoreCase(nome);
+    public List<Categoria> findByFilters(String nome, Boolean situacao) {
+        var categorias = this.categoriaRepository.findByFilters(nome, situacao);
+        return categorias;
     }
-
-
 }
+
