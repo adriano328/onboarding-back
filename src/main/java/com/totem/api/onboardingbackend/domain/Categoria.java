@@ -1,5 +1,6 @@
 package com.totem.api.onboardingbackend.domain;
 
+import com.totem.api.onboardingbackend.Enum.CategoriaSituacaoEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,6 @@ public class Categoria {
     private String nome;
 
     @Column
-    private Boolean situacao;
+    private CategoriaSituacaoEnum situacao;
 
 }

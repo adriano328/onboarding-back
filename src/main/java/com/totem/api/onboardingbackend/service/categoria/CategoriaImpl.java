@@ -1,5 +1,6 @@
 package com.totem.api.onboardingbackend.service.categoria;
 
+import com.totem.api.onboardingbackend.Enum.CategoriaSituacaoEnum;
 import com.totem.api.onboardingbackend.domain.Categoria;
 import com.totem.api.onboardingbackend.repositories.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +45,7 @@ public class CategoriaImpl implements CategoriaService{
     }
 
     @Override
-    public List<Categoria> findByFilters(String nome, Boolean situacao) {
+    public List<Categoria> findByFilters(String nome, CategoriaSituacaoEnum situacao) {
         var categorias = this.categoriaRepository.findByFilters(nome, situacao);
         return categorias;
     }

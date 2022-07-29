@@ -1,5 +1,6 @@
 package com.totem.api.onboardingbackend.controller;
 
+import com.totem.api.onboardingbackend.Enum.CategoriaSituacaoEnum;
 import com.totem.api.onboardingbackend.domain.Categoria;
 import com.totem.api.onboardingbackend.service.categoria.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,7 @@ public class CategoriaController {
     @GetMapping
     public List<Categoria> listar(Pageable pageable,
                                   @RequestParam(required = false) String nome,
-                                  @RequestParam (required = false) Boolean situacao ){
+                                  @RequestParam (required = false) CategoriaSituacaoEnum situacao ){
         var response = this.categoriaService.findByFilters(nome, situacao);
         return  response;
     }

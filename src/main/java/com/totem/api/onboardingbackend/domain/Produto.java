@@ -1,7 +1,7 @@
 package com.totem.api.onboardingbackend.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.totem.api.onboardingbackend.Enum.ProdutoSituacaoEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,6 +29,6 @@ public class Produto {
     Categoria categoria;
 
     @Column
-    private boolean situacao;
+    private ProdutoSituacaoEnum situacao;
 
 }
