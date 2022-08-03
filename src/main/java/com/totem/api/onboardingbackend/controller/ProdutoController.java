@@ -1,29 +1,47 @@
 package com.totem.api.onboardingbackend.controller;
 
+import com.totem.api.onboardingbackend.Enum.ProdutoSituacaoEnum;
+import com.totem.api.onboardingbackend.domain.Categoria;
 import com.totem.api.onboardingbackend.domain.Produto;
 import com.totem.api.onboardingbackend.service.produto.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "produto")
+@RequestMapping("/produto")
 @CrossOrigin(exposedHeaders="Access-Control-Allow-Origin")
 public class ProdutoController {
 
     @Autowired
     ProdutoService produtoService;
 
-    @PostMapping()
-    ResponseEntity<Produto> save(@RequestBody Produto produto){
-        return ResponseEntity.ok(produtoService.save(produto));
-    }
-
     @GetMapping("/{id}")
     ResponseEntity<Produto> getById(@PathVariable Integer id){
         return ResponseEntity.ok(produtoService.getById(id));
+    }
+
+    @GetMapping()
+    public List<Produto> listar(Pageable pageable,
+                                @RequestParam(required = false) String nome,
+                                @RequestParam(required = false)ProdutoSituacaoEnum situacao,
+                                @RequestParam(required = false)Categoria categoria){
+        var response = this.produtoService.findByFilters(nome, situacao, categoria);
+        return response;
+    }
+
+    @GetMapping("/listar-por-nome")
+    ResponseEntity<List<Produto>> listarPorNome(@RequestParam ("nome") String nome){
+        return ResponseEntity.ok().body(produtoService.findProdutoByName(nome));
+    }
+
+    @PostMapping()
+    ResponseEntity<Produto> save(@RequestBody Produto produto){
+        var x = produtoService.save(produto);
+        return ResponseEntity.ok(x);
     }
 
     @DeleteMapping("/{id}")
@@ -31,19 +49,11 @@ public class ProdutoController {
         produtoService.delete(id);
     }
 
-    @PutMapping()
-    ResponseEntity<Produto> update(@RequestBody Produto produto){
-        return ResponseEntity.ok(produtoService.update(produto));
+    @PutMapping("{id}")
+    ResponseEntity<Produto> update(@PathVariable Integer id, @RequestBody Produto produto){
+        return ResponseEntity.ok(produtoService.update(produto, id));
     }
 
-    @GetMapping("/lista-produto")
-    public List<Produto> listar(){
-        return produtoService.findAll();
-    }
 
-    @GetMapping("/listar-por-nome")
-    ResponseEntity<List<Produto>> listarPorNome(@RequestParam ("nome") String nome){
-        return ResponseEntity.ok().body(produtoService.findProdutoByName(nome));
-    }
 
 }

@@ -1,5 +1,8 @@
 package com.totem.api.onboardingbackend.service.produto;
 
+import com.totem.api.onboardingbackend.Enum.CategoriaSituacaoEnum;
+import com.totem.api.onboardingbackend.Enum.ProdutoSituacaoEnum;
+import com.totem.api.onboardingbackend.domain.Categoria;
 import com.totem.api.onboardingbackend.domain.Cliente;
 import com.totem.api.onboardingbackend.domain.Produto;
 import com.totem.api.onboardingbackend.repositories.ProdutoRepository;
@@ -17,10 +20,12 @@ public interface ProdutoService {
 
     void delete (Integer id);
 
-    Produto update(Produto produto);
+    Produto update(Produto produto, Integer id);
 
     List<Produto> findAll();
 
     List<Produto> findProdutoByName(String nome);
+
+    List<Produto> findByFilters(String nome, ProdutoSituacaoEnum situacao, Categoria categoria);
 
 }

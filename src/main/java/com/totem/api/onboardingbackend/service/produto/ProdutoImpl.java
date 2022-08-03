@@ -1,5 +1,8 @@
 package com.totem.api.onboardingbackend.service.produto;
 
+import com.totem.api.onboardingbackend.Enum.CategoriaSituacaoEnum;
+import com.totem.api.onboardingbackend.Enum.ProdutoSituacaoEnum;
+import com.totem.api.onboardingbackend.domain.Categoria;
 import com.totem.api.onboardingbackend.domain.Cliente;
 import com.totem.api.onboardingbackend.domain.Produto;
 import com.totem.api.onboardingbackend.repositories.ProdutoRepository;
@@ -31,10 +34,15 @@ public class ProdutoImpl implements ProdutoService{
     }
 
     @Override
-    public Produto update(Produto produto) {
-
-        return produtoRepository.save(produto);
+    public Produto update(Produto produto, Integer id) {
+        Produto produtoUpdate = getById(id);
+        produtoUpdate.setId(id);
+        produtoUpdate.setNome(produto.getNome());
+        produtoUpdate.setSituacao(produto.getSituacao());
+        produtoUpdate.setCategoria(produto.getCategoria());
+        return produtoRepository.save(produtoUpdate);
     }
+
 
     @Override
     public List<Produto> findAll() {
@@ -45,4 +53,11 @@ public class ProdutoImpl implements ProdutoService{
     public List<Produto> findProdutoByName(String nome) {
         return produtoRepository.findByNomeContainingIgnoreCase(nome);
     }
+
+    @Override
+    public List<Produto> findByFilters(String nome, ProdutoSituacaoEnum situacao, Categoria categoria) {
+        var produtos = this.produtoRepository.findByFilters(nome, situacao, categoria);
+        return produtos;
+    }
+
 }
