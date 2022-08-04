@@ -20,5 +20,4 @@ public interface ClienteService {
 
     Cliente update(Cliente cliente);
 
-    List<Cliente> findClienteByName(String nomeRazao);
 }

@@ -38,10 +38,6 @@ public class ClienteImpl implements ClienteService{
         return clienteRepository.save(cliente);
     }
 
-    @Override
-    public List<Cliente> findClienteByName(String nomeRazao) {
-        return clienteRepository.findByNomeRazaoContainingIgnoreCase(nomeRazao);
-    }
 
 
 }

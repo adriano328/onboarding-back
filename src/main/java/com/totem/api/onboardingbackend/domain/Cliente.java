@@ -1,12 +1,13 @@
 package com.totem.api.onboardingbackend.domain;
 
+import com.totem.api.onboardingbackend.Enum.SexoEnum;
+import com.totem.api.onboardingbackend.Enum.TipoClienteEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Getter
@@ -20,7 +21,7 @@ public class Cliente {
     private Integer id;
 
     @Column
-    private String tipo;
+    private TipoClienteEnum tipo;
 
     @Column
     private String cpfoucnpj;
@@ -35,21 +36,21 @@ public class Cliente {
     private String nomeRazao;
 
     @Column
-    private Boolean sexo;
+    private SexoEnum sexo;
 
     @Column
     private String dtaNascimento;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cliente_id")
-    private List<Endereco> enderecos;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_id")
+    private Endereco endereco;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cliente_id")
-    private List<Telefone> telefones;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "telefone_id")
+    private Telefone telefone;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "cliente_id")
-    private List<Email> emails;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "email_id")
+    private Email email;
 
 }
