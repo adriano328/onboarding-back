@@ -21,7 +21,6 @@ public class Email {
     @Column
     private String email;
 
-    @Column
-    private boolean padrao;
+
 
 }

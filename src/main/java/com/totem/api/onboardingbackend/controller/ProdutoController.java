@@ -33,11 +33,6 @@ public class ProdutoController {
         return response;
     }
 
-    @GetMapping("/listar-por-nome")
-    ResponseEntity<List<Produto>> listarPorNome(@RequestParam ("nome") String nome){
-        return ResponseEntity.ok().body(produtoService.findProdutoByName(nome));
-    }
-
     @PostMapping()
     ResponseEntity<Produto> save(@RequestBody Produto produto){
         var x = produtoService.save(produto);

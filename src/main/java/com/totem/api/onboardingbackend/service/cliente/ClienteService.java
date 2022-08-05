@@ -1,5 +1,6 @@
 package com.totem.api.onboardingbackend.service.cliente;
 
+import com.totem.api.onboardingbackend.Enum.ClienteSituacaoEnum;
 import com.totem.api.onboardingbackend.domain.Cliente;
 import com.totem.api.onboardingbackend.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,4 +21,5 @@ public interface ClienteService {
 
     Cliente update(Cliente cliente);
 
+    List<Cliente> findByFilters(String nomeRazao, ClienteSituacaoEnum situacao);
 }

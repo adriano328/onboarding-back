@@ -21,12 +21,10 @@ public class Telefone {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
 
-    private String tipo;
-
     private String numeroTelefone;
 
     private String contato;
 
-    private boolean padrao;
+    private String celular;
 
 }

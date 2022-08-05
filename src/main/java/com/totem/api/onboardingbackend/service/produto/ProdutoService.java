@@ -24,8 +24,6 @@ public interface ProdutoService {
 
     List<Produto> findAll();
 
-    List<Produto> findProdutoByName(String nome);
-
     List<Produto> findByFilters(String nome, ProdutoSituacaoEnum situacao, Categoria categoria);
 
 }

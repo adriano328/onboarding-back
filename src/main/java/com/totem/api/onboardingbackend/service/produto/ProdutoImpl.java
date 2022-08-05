@@ -49,10 +49,6 @@ public class ProdutoImpl implements ProdutoService{
         return produtoRepository.findAll();
     }
 
-    @Override
-    public List<Produto> findProdutoByName(String nome) {
-        return produtoRepository.findByNomeContainingIgnoreCase(nome);
-    }
 
     @Override
     public List<Produto> findByFilters(String nome, ProdutoSituacaoEnum situacao, Categoria categoria) {
