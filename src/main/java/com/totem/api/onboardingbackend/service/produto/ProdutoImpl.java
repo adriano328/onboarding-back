@@ -51,8 +51,8 @@ public class ProdutoImpl implements ProdutoService{
 
 
     @Override
-    public List<Produto> findByFilters(String nome, ProdutoSituacaoEnum situacao, Categoria categoria) {
-        var produtos = this.produtoRepository.findByFilters(nome, situacao, categoria);
+    public List<Produto> findByFilters(String nome, ProdutoSituacaoEnum situacao) {
+        var produtos = this.produtoRepository.findByFilters(nome, situacao);
         return produtos;
     }
 

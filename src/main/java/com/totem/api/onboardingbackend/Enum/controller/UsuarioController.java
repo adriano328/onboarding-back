@@ -1,4 +1,4 @@
-package com.totem.api.onboardingbackend.controller;
+package com.totem.api.onboardingbackend.Enum.controller;
 
 import com.totem.api.onboardingbackend.domain.Produto;
 import com.totem.api.onboardingbackend.domain.Usuario;

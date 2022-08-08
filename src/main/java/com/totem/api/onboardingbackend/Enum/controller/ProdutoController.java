@@ -1,4 +1,4 @@
-package com.totem.api.onboardingbackend.controller;
+package com.totem.api.onboardingbackend.Enum.controller;
 
 import com.totem.api.onboardingbackend.Enum.ProdutoSituacaoEnum;
 import com.totem.api.onboardingbackend.domain.Categoria;
@@ -27,9 +27,8 @@ public class ProdutoController {
     @GetMapping()
     public List<Produto> listar(Pageable pageable,
                                 @RequestParam(required = false) String nome,
-                                @RequestParam(required = false)ProdutoSituacaoEnum situacao,
-                                @RequestParam(required = false)Categoria categoria){
-        var response = this.produtoService.findByFilters(nome, situacao, categoria);
+                                @RequestParam(required = false)ProdutoSituacaoEnum situacao){
+        var response = this.produtoService.findByFilters(nome, situacao);
         return response;
     }
 

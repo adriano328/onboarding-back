@@ -37,7 +37,6 @@ public class ClienteImpl implements ClienteService{
     @Override
     public Cliente update(Cliente cliente, Integer id) {
         Cliente clienteUpdate = getById(id);
-        clienteUpdate.setId(id);
         clienteUpdate.setTipo(cliente.getTipo());
         clienteUpdate.setCpfoucnpj(cliente.getCpfoucnpj());
         clienteUpdate.setInscricaoEstadual(cliente.getInscricaoEstadual());

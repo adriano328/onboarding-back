@@ -1,4 +1,4 @@
-package com.totem.api.onboardingbackend.controller;
+package com.totem.api.onboardingbackend.Enum.controller;
 
 import com.totem.api.onboardingbackend.Enum.CategoriaSituacaoEnum;
 import com.totem.api.onboardingbackend.domain.Categoria;
