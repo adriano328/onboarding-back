@@ -2,5 +2,8 @@ package com.totem.api.onboardingbackend.Enum;
 
 public enum ProdutoSituacaoEnum {
     ATIVO,
-    INATIVO
+    INATIVO;
+
+    private String descricao;
+
 }
