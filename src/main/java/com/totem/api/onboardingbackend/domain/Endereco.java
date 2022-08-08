@@ -18,7 +18,7 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
 
-    private String endereco;
+    private String logradouro;
 
     @Column
     private String bairro;

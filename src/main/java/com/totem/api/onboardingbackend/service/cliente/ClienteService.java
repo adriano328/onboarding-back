@@ -19,7 +19,7 @@ public interface ClienteService {
 
     List<Cliente> findAll();
 
-    Cliente update(Cliente cliente);
+    Cliente update(Cliente cliente, Integer id);
 
     List<Cliente> findByFilters(String nomeRazao, ClienteSituacaoEnum situacao);
 }

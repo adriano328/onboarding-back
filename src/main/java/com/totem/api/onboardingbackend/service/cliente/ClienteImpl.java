@@ -35,9 +35,23 @@ public class ClienteImpl implements ClienteService{
     }
 
     @Override
-    public Cliente update(Cliente cliente) {
-        return clienteRepository.save(cliente);
+    public Cliente update(Cliente cliente, Integer id) {
+        Cliente clienteUpdate = getById(id);
+        clienteUpdate.setId(id);
+        clienteUpdate.setTipo(cliente.getTipo());
+        clienteUpdate.setCpfoucnpj(cliente.getCpfoucnpj());
+        clienteUpdate.setInscricaoEstadual(cliente.getInscricaoEstadual());
+        clienteUpdate.setSituacao(cliente.getSituacao());
+        clienteUpdate.setNomeRazao(cliente.getNomeRazao());
+        clienteUpdate.setSexo(cliente.getSexo());
+        clienteUpdate.setDtaNascimento(cliente.getDtaNascimento());
+        clienteUpdate.setEndereco(cliente.getEndereco());
+        clienteUpdate.setTelefone(cliente.getTelefone());
+        clienteUpdate.setEmail(cliente.getEmail());
+
+        return clienteRepository.save(clienteUpdate);
     }
+
 
     @Override
     public List<Cliente> findByFilters(String nomeRazao, ClienteSituacaoEnum situacao) {

@@ -1,5 +1,6 @@
 package com.totem.api.onboardingbackend.domain;
 
+import com.totem.api.onboardingbackend.Enum.ClienteSituacaoEnum;
 import com.totem.api.onboardingbackend.Enum.SexoEnum;
 import com.totem.api.onboardingbackend.Enum.TipoClienteEnum;
 import lombok.AllArgsConstructor;
@@ -30,7 +31,7 @@ public class Cliente {
     private String inscricaoEstadual;
 
     @Column
-    private boolean situacao;
+    private ClienteSituacaoEnum situacao;
 
     @Column
     private String nomeRazao;
