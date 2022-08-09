@@ -17,8 +17,10 @@ public interface ProdutoRepository extends JpaRepository<Produto, Integer> {
 
     @Query("SELECT p FROM Produto p "
             + "WHERE (LOWER(p.nome) like CONCAT('%', LOWER(:nome), '%') OR :nome IS NULL) "
-            + "AND (:situacao IS NULL OR p.situacao = :situacao)")
+            + "AND (:situacao IS NULL OR p.situacao = :situacao)"
+            + "AND (:categoria IS NULL OR p.categoria.nome = :categoria)")
     List<Produto>findByFilters(@Param("nome") String nome,
-                               @Param("situacao")ProdutoSituacaoEnum situacao);
+                               @Param("situacao")ProdutoSituacaoEnum situacao,
+                               @Param("categoria")String categoria);
 
 }

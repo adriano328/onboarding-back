@@ -27,8 +27,9 @@ public class ProdutoController {
     @GetMapping()
     public List<Produto> listar(Pageable pageable,
                                 @RequestParam(required = false) String nome,
-                                @RequestParam(required = false)ProdutoSituacaoEnum situacao){
-        var response = this.produtoService.findByFilters(nome, situacao);
+                                @RequestParam(required = false) ProdutoSituacaoEnum situacao,
+                                @RequestParam(required = false) String categoria){
+        var response = this.produtoService.findByFilters(nome, situacao, categoria);
         return response;
     }
 
